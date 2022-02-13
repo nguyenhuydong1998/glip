@@ -108,7 +108,7 @@ module fifo_dualclock_standard #(
          wire [PROG_FULL:0][AW-1:0]   prog_full_addr;
          logic [PROG_FULL:0] prog_full_part;
          genvar i;
-         for (i = 0; i <= PROG_FULL; i++) begin
+         for (i = 0; i <= PROG_FULL; i++) begin:name
             assign prog_full_addr[i] = wr_addr + i;
          end
          always @(posedge wr_clk) begin
@@ -135,7 +135,7 @@ module fifo_dualclock_standard #(
          wire [PROG_EMPTY:0][AW-1:0]   prog_empty_addr;
          logic [PROG_EMPTY:0] prog_empty_part;
          genvar i;
-         for (i = 0; i <= PROG_EMPTY; i++) begin
+         for (i = 0; i <= PROG_EMPTY; i++) begin:name0
             assign prog_empty_addr[i] = rd_addr + i;
          end
          always @(posedge rd_clk) begin
